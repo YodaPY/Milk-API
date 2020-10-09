@@ -40,8 +40,8 @@ GET | /economy/users/leaderboard | None | None
 ```py
 from aiohttp import request
 
-async def get_user():
-  async with request("GET", "/leveling/users/user/user_id") as resp:
+async def get_user(user_id):
+  async with request("GET", f"/leveling/users/user/{user_id}") as resp:
     data = await resp.json()
     return data
 ```
@@ -62,8 +62,75 @@ async def get_user():
 ```py
 from aiohttp import request
 
-async def get_user():
-  async with request("GET", "/leveling/users/leaderboard/guild_id") as resp:
+async def get_leaderboard(guild_id):
+  async with request("GET", f"/leveling/users/leaderboard/{guild_id}") as resp:
+    data = await resp.json()
+    return data
+```
+
+### /leveling/users/leaderboard
+
+```json
+{
+ "leaderboard": [
+   {
+     "ID": 18557
+   }
+  ]
+}
+```
+
+```py
+from aiohttp import request
+
+async def get_leaderboard(guild_id):
+  async with request("GET", f"/leveling/users/leaderboard") as resp:
+    data = await resp.json()
+    return data
+```
+
+### /economy/users/user
+
+```json
+{
+ "user": {
+  "User ID": ID,
+  "Coins":  18557,
+  "Jail": false,
+  "Guard": false,
+  "items": [
+   {
+   }
+  ]
+ }
+}
+```
+
+```py
+from aiohttp import request
+
+async def get_user(user_id):
+  async with request("GET", f"/economy/users/user/{user_id}") as resp:
+    data = await resp.json()
+    return data
+```
+
+### /economy/users/leaderboard
+
+```json
+{
+ "leaderboard": [
+  {
+  }
+ ]
+}
+```
+
+```py
+from aiohttp import request
+
+async def get_leaderboard():
+  async with request("GET", f"/economy/users/leaderboard") as resp:
     data = await resp.json()
     return data
 ```
