@@ -29,8 +29,8 @@ GET | /economy/users/leaderboard | None | None
 ```json
 {
   "user": {
-    "User ID": ID,
-    "Guild ID": ID,
+    "User ID": 12345,
+    "Guild ID": 12345,
     "XP": 18557,
     "Fake XP": 1930
   }
@@ -50,10 +50,10 @@ async def get_user(user_id):
 
 ```json
 {
-  "Guild ID": ID,
+  "Guild ID": 12345,
   "leaderboard": [
     {
-      "ID": 20487
+      "12345": 20487
     }
   ]
 }
@@ -74,7 +74,7 @@ async def get_leaderboard(guild_id):
 {
  "leaderboard": [
    {
-     "ID": 18557
+     "12345": 18557
    }
   ]
 }
@@ -94,7 +94,7 @@ async def get_leaderboard(guild_id):
 ```json
 {
  "user": {
-  "User ID": ID,
+  "User ID": 12345,
   "Coins":  18557,
   "Jail": false,
   "Guard": false,
@@ -121,7 +121,7 @@ async def get_user(user_id):
 {
  "leaderboard": [
   {
-   "ID": 18557
+   "12345": 18557
   }
  ]
 }
