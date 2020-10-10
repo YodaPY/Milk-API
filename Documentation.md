@@ -17,10 +17,10 @@ The Documentation for the Milk discord bot API
 Method | Endpoint | Arguments | Parameters
 -------|----------|-----------|------------
 GET | /leveling/users/user | guild_id: int - user_id: int | None
-GET | /leveling/users/leaderboard | guild_id: int | None
-GET | /leveling/users/leaderboard | None | None
+GET | /leveling/users/leaderboard | guild_id: int | limit
+GET | /leveling/users/leaderboard | None | limit
 GET | /economy/users/user | user_id: int | None
-GET | /economy/users/leaderboard | None | None
+GET | /economy/users/leaderboard | None | limit
 
 ## Examples
 
@@ -64,6 +64,7 @@ from aiohttp import request
 
 async def get_leaderboard(guild_id):
   async with request("GET", f"/leveling/users/leaderboard/{guild_id}") as resp:
+    #limit defaults to 10
     data = await resp.json()
     return data
 ```
@@ -84,7 +85,8 @@ async def get_leaderboard(guild_id):
 from aiohttp import request
 
 async def get_leaderboard(guild_id):
-  async with request("GET", f"/leveling/users/leaderboard") as resp:
+  async with request("GET", f"/leveling/users/leaderboard?limit=50") as resp:
+    #limit of the limit is 50
     data = await resp.json()
     return data
 ```
@@ -131,7 +133,8 @@ async def get_user(user_id):
 from aiohttp import request
 
 async def get_leaderboard():
-  async with request("GET", f"/economy/users/leaderboard") as resp:
+  async with request("GET", f"/economy/users/leaderboard?limit=1") as resp:
+    #user with the most coins
     data = await resp.json()
     return data
 ```
