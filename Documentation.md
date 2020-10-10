@@ -17,10 +17,10 @@ The Documentation for the Milk discord bot API
 Method | Endpoint | Arguments | Parameters
 -------|----------|-----------|------------
 GET | /leveling/users/user | guild_id: int - user_id: int | None
-GET | /leveling/users/leaderboard | guild_id: int | limit
-GET | /leveling/users/leaderboard | None | limit
+GET | /leveling/users/leaderboard | guild_id: int | limit, reversed
+GET | /leveling/users/leaderboard | None | limit, reversed
 GET | /economy/users/user | user_id: int | None
-GET | /economy/users/leaderboard | None | limit
+GET | /economy/users/leaderboard | None | limit, reversed
 
 ## Examples
 
@@ -63,7 +63,8 @@ async def get_user(user_id):
 from aiohttp import request
 
 async def get_leaderboard(guild_id):
-  async with request("GET", f"/leveling/users/leaderboard/{guild_id}") as resp:
+  async with request("GET", f"/leveling/users/leaderboard/{guild_id}?reversed=True") as resp:
+    #order is ASC (starts with the user with the least xp)
     #limit defaults to 10
     data = await resp.json()
     return data
