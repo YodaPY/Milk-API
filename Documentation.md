@@ -53,7 +53,7 @@ async def get_user(user_id):
   "Guild ID": 12345,
   "leaderboard": [
     {
-      "12345": 20487
+      "12345": 0
     }
   ]
 }
