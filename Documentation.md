@@ -22,3 +22,21 @@ GET | /leveling/users/leaderboard | limit, reversed
 GET | /economy/users/user/<user_id> | None
 GET | /economy/users/leaderboard | limit, reversed
 GET | /social/badges/<user_id> | None
+
+For every request you sent you will need an Authorization Token:
+Generate one with `milk.bot generate token`
+
+### Examples
+
+```py
+from aiohttp import request
+
+async with request(
+    "GET",
+    "http://milk.tmpod.dev/api/economy/users/leaderboard",
+    headers={
+        "Token": "My Token"
+    }
+) as resp:
+    data = await resp.json()
+```
