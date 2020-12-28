@@ -11,7 +11,7 @@ The Documentation for the Milk discord bot API
  ## About Milk
  Milk is a feature-rich discord bot, supporting features like verification, economy, leveling, image manipulation, custom commands, message and image filters as well as its own developer API. It's fully configureable and user friendly.
 
-![Milk](https://cdn.discordapp.com/avatars/719243473437327420/ed8d87fb55fa79a213ca8d5da20eacaf.png?size=1024)
+![Milk](https://cdn.discordapp.com/attachments/339112602867204097/793157816327602206/b4c41895986e598e443e8d99a500e48b.png)
 
 ## Endpoints
 Method | Endpoint | Arguments | Additional query
