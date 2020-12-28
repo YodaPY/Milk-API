@@ -26,6 +26,8 @@ GET | /social/badges/<user_id> | None
 For every request you sent you will need an Authorization Token:
 Generate one with `milk.bot generate token`
 
+Base URL: `http://milk.tmpod.dev/api`
+
 ### Examples
 
 ```py
